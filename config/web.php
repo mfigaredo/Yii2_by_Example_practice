@@ -87,6 +87,9 @@ $config = [
             'currencyCode' => 'EUR',
        ],
        */
+      'user' => [
+        'identityClass' => 'app\models\User',
+      ],
 
     ],
     'params' => $params,
