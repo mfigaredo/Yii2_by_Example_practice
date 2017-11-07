@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\jui\DatePicker;
 
+$this->title = 'DatePicker examples';
+$this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
@@ -13,24 +15,24 @@ use yii\jui\DatePicker;
         <?php
             $value = date('Y-m-d');
             
-        echo DatePicker::widget([
-            'name'  => 'from_date',
-            'value'  => $value,
-            'language' => 'en',
-            'dateFormat' => 'MM/dd/yyyy',
-        ]);
+            echo DatePicker::widget([
+                'name'  => 'from_date',
+                'value'  => $value,
+                'language' => 'en',
+                'dateFormat' => 'MM/dd/yyyy',
+            ]);
         ?>
     </div>
     <div class="col-lg-6">
         
         <?php if($reservationUpdated) { ?>
             <?php 
-            echo yii\bootstrap\Alert::widget([
-                'options' => [
-                    'class' => 'alert-success',
-                ],
-                'body' => 'Reservation successfully updated',
-            ]);   
+                echo yii\bootstrap\Alert::widget([
+                    'options' => [
+                        'class' => 'alert-success',
+                    ],
+                    'body' => 'Reservation successfully updated',
+                ]);   
             ?>         
         <?php } ?>
         

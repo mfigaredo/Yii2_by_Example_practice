@@ -218,17 +218,23 @@ class ReservationsController extends Controller
                 {
                     $dbTrans->commit();
                 }
-                else {
+                else 
+                {
                     $dbTrans->rollback();
                 }                
             }
-            else {
+            else 
+            {
                 $dbTrans->rollback();
             }
         }
         
         
-        return $this->render('createCustomerAndReservation', [ 'customer' => $customer, 'reservation' => $reservation ]);
+        return $this->render('createCustomerAndReservation', [ 
+            'customer' => $customer, 
+            'reservation' => $reservation,
+        ]);
+        
     }
     
 }

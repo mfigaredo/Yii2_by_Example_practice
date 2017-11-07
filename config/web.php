@@ -25,8 +25,8 @@ $config = [
             
             'rules' => [
             
-           //     '<category:\w+>' => 'categories/detail',
-                '<alias:\w+>' => 'site/<alias>',
+               '<category:\w+>' => 'categories/detail',
+           //     '<alias:\w+>' => 'site/<alias>',
 				'test-rules/<year:\d{4}>/items-list' => 'test-rules/items-list',
 				[ 
 					'pattern' => 'test-rules/<category:\w+>/items-list',
@@ -41,7 +41,8 @@ $config = [
 					'class' => 'app\components\TestUrlRule', 
 					// ...configure other properties...
 				],
-				   
+				// 'site/captcha/<refresh:\d+>' => 'site/captcha',
+    //             'site/captcha/<v:\w+>' => 'site/captcha',   
             ],
         ],        
         

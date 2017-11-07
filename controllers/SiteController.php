@@ -48,9 +48,16 @@ class SiteController extends Controller
                 'class' => 'yii\web\ErrorAction',
             ],
             'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+                #'class' => 'yii\captcha\CaptchaAction',
+                'class' => 'app\components\MathCaptchaAction',
+                'fixedVerifyCode' => (YII_ENV_TEST || YII_ENV_DEV && false) ? '42' : null,
             ],
+            //  'captcha2' => [
+            //     'class' => 'hr\captcha\CaptchaAction',
+            //     'operators' => ['+','-','*'],
+            //     'maxValue' => 10,
+            //     'fontSize' => 18,
+            // ],
         ];
     }
 
@@ -103,6 +110,7 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
